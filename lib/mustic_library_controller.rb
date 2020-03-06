@@ -10,7 +10,7 @@ class MusicLibraryController
 
   def list_songs
     Song.all.sort_by{|song| song.name}
-      .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.artist.name} - #{song.name} - #{song.genre}"}
+      .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
   end
 
   def list_artists
@@ -25,14 +25,14 @@ class MusicLibraryController
     puts "Please enter the name of an artist:"
     response = gets.chomp
     response.songs.sort_by{|song| song.name}
-    .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.name} - #{song.genre}"} if Artist.find_by_name(response)
+    .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.name} - #{song.genre.name}"} if Artist.find_by_name(response)
   end
 
   def list_songs_by_genre
     puts "Please enter the name of an artist:"
     response = gets.chomp
     response.songs.sort_by{|song| song.name}
-    .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.name} - #{song.genre}"} if Genre.find_by_name(response)
+    .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.artist.name} - #{song.name}"} if Genre.find_by_name(response)
   end
 
   def call
