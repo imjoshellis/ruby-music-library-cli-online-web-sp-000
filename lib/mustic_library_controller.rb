@@ -6,6 +6,10 @@ class MusicLibraryController
     @importer.import
   end
 
+  def list_songs
+    @importer.files.each_with_index{|file, idx| puts (idx+1).to_s + ". " + file.split('.')[0]}
+  end
+
   def call
     response = ""
     while response != "exit"
@@ -21,15 +25,15 @@ class MusicLibraryController
       response = gets.chomp
       case response
       when "list songs"
-        @importer.list_songs
+        list_songs
       when "list artists"
-        @importer.list_artists
+        list_artists
       when "list genres"
-        @importer.list_genres
+        list_genres
       when "list artist"
-        @importer.list_songs_by_artist
+        list_songs_by_artist
       when "list genre"
-        @importer.list_songs_by_genre
+        list_songs_by_genre
       end
     end
   end
