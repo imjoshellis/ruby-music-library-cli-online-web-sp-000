@@ -10,7 +10,7 @@ class MusicLibraryController
     @importer.files
       .sort_by{|file| file.split(" - ")[1]}
       .each_with_index{|file, idx| puts (idx+1).to_s + ". " + file.split('.')}
-      end
+      
   end
 
   def list_artists
