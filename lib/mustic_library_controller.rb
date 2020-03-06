@@ -19,6 +19,18 @@ class MusicLibraryController
       puts "To quit, type 'exit'."
       puts "What would you like to do?"
       response = gets.chomp
+      case response
+      when "list songs"
+        @importer.list_songs
+      when "list artists"
+        @importer.list_artists
+      when "list genres"
+        @importer.list_genres
+      when "list artist"
+        @importer.list_songs_by_artist
+      when "list genre"
+        @importer.list_songs_by_genre
+      end
     end
   end
 end
