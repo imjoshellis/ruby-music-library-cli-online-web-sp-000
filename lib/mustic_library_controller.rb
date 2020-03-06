@@ -24,14 +24,16 @@ class MusicLibraryController
   def list_songs_by_artist
     puts "Please enter the name of an artist:"
     response = gets.chomp
-    Artist.find_by_name(response).songs.sort_by{|song| song.name}
+    artist = Artist.find_by_name(response)
+    .songs.sort_by{|song| song.name}
     .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.name} - #{song.genre.name}"} if artist
   end
 
   def list_songs_by_genre
     puts "Please enter the name of an artist:"
     response = gets.chomp
-    Genre.find_by_name(response).songs.sort_by{|song| song.name}
+    genre = Genre.find_by_name(response)
+    genre.songs.sort_by{|song| song.name}
     .each_with_index{|song, idx| puts "#{(idx+1).to_s}. #{song.artist.name} - #{song.name}"} if genre
   end
 
