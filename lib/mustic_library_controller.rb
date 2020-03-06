@@ -7,7 +7,7 @@ class MusicLibraryController
   end
 
   def list_songs
-    @importer.files.each_with_index{|file, idx| puts (idx+1).to_s + ". " + file.split('.')[0]}
+    @importer.files.sort.each_with_index{|file, idx| puts (idx+1).to_s + ". " + file.split('.')[0]}
   end
 
   def call
