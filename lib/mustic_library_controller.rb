@@ -14,7 +14,11 @@ class MusicLibraryController
   end
 
   def list_artists
-    Artist.all.sort_by{|artist| artist.name}.each_with_index{|artist, idx| puts (idx+1).to_s + ". " + artist.name}
+    Artist.all.sort_by{|item| item.name}.each_with_index{|item, idx| puts (idx+1).to_s + ". " + item.name}
+  end
+
+  def list_genres
+    Genre.all.sort_by{|item| item.name}.each_with_index{|item, idx| puts (idx+1).to_s + ". " + item.name}
   end
 
   def call
