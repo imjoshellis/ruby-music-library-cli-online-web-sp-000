@@ -43,6 +43,7 @@ class MusicLibraryController
     response = gets.chomp
     Song.all.sort_by{|song| song.name}
       .each_with_index{|song, idx| puts "Playing #{song.name} by #{song.artist.name}" if idx+1 == response}
+    binding.pry
   end
 
   def call
